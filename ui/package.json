@@ -1,0 +1,17 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildEnv": "node ./bin/buildEnv.js",
+    "server": "cd server && npm run start",
+    "webpack": "cd client && npm run webpack"
+  },
+  "author": "Shayne",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
