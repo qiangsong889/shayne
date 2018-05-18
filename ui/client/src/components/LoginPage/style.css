@@ -1,0 +1,49 @@
+.Combined-Shape {
+  width: 240px;
+  height: 204px;
+  background-image: linear-gradient(
+    to bottom,
+    #0f0c29 #aca5ec 42%,
+    #322c74 64%,
+    #23243e
+  );
+}
+.content {
+  /* width: 20vw; */
+  height: 33px;
+  font-family: PingFang-SC;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+
+.login {
+  text-align: center;
+}
+
+.denglu {
+  width: 300px;
+  height: 82px;
+  border-radius: 45px;
+  background-color: purple;
+}
+input[type='text'] {
+  width: 650px;
+  height: 82px;
+  margin: 5px;
+  line-height: 4px;
+  border-radius: 10px;
+  border: solid 1px #979797;
+}
+input[type='password'] {
+  width: 650px;
+  height: 82px;
+  border-radius: 10px;
+  border: solid 1px #979797;
+  margin-bottom: 20px;
+}
