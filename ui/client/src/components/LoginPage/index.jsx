@@ -1,30 +1,61 @@
 import React, { Component } from 'react';
 import './style.css';
-
+import axios from 'axios';
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      username: '',
-      password: ''
+      username: 'codingchallenge@brandify.com',
+      password: 'appl!c@nt',
+      sessionId: '',
+      err: ''
     };
+  }
+  async handleSubmitClick() {
+    try {
+      const { data } = await axios.post(
+        'https://one-staging-api.brandify.com/service/user/authenticate',
+        this.state
+      );
+      if (data.session) {
+        this.setState({
+          sessionId: data.session.sessionId
+        });
+        this.props.gainSessionId(data.session.sessionId);
+      } else {
+        this.setState({
+          err: data.status.description
+        });
+        console.log('err');
+      }
+    } catch (err) {
+      console.log('having error ', err);
+    }
   }
   render() {
     return (
       <div className="login">
-        <div className="Combined-Shape" />
-        <br />
-        <div className="loginBox">
-          <div className="content">欢迎来到AQ, 请登录</div>
-          <input type="text" placeholder="用户名" />
-          <br />
-          <input type="password" placeholder="密码" />
-          <br />
-          <button className="denglu">登陆</button>
-        </div>
-        <div>
-          没有账号？ 请<a href="">注册</a>
-        </div>
+        {this.state.sessionId ? (
+          <div>session verified</div>
+        ) : (
+          <div>
+            <h2>log in to gain session id:</h2> <br />
+            {this.state.err && <div>{this.state.err}</div>}
+            <input
+              type="text"
+              id="username"
+              onChange={e => this.setState({ username: e.target.value })}
+            />
+            <br />
+            <input
+              id="password"
+              type="text"
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <br />
+            <button onClick={() => this.handleSubmitClick()}>submit</button>
+          </div>
+        )}
       </div>
     );
   }
