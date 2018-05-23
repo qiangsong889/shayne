@@ -11,4 +11,4 @@ clone repository to your local computer
 #3
   1)cd to ui do npm run buildEnv
   2)ask project owner for google map api key and paste it to index.html above bundle.js
-  3)npm run start
+  3)npm run start, app is running on localhost:1446
