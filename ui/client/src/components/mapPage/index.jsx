@@ -20,12 +20,6 @@ class Map extends Component {
       // filter: " accountId IN ('77b0c1a5-6159-44a9-8268-07b393da0d4e') ",
     };
   }
-  componentDidMount() {
-    gapi.load('auth2', function() {
-      // Library loaded.
-      console.log(' i think libiary is loaded');
-    });
-  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.sessionId !== this.props.sessionId) {
       console.log('trying to update state of mappage', nextProps);
