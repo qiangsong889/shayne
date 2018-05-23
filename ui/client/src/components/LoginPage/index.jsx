@@ -5,8 +5,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'codingchallenge@brandify.com',
-      password: 'appl!c@nt',
+      username: '',
+      password: '',
       sessionId: '',
       err: ''
     };
@@ -53,7 +53,9 @@ class Login extends Component {
               onChange={e => this.setState({ password: e.target.value })}
             />
             <br />
-            <button onClick={() => this.handleSubmitClick()}>submit</button>
+            <button id="submit" onClick={() => this.handleSubmitClick()}>
+              submit
+            </button>
           </div>
         )}
       </div>
