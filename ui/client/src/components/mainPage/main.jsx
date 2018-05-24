@@ -13,6 +13,9 @@ class Main extends Component {
     };
     this.gainSessionId = this.gainSessionId.bind(this);
   }
+  initMap() {
+    console.log('library is loaded');
+  }
   gainSessionId(id) {
     console.log('trying to call gainsessionid', id);
     this.setState({

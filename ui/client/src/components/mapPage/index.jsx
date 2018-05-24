@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
+
 var map,
   infoWindow,
   geocoder,
@@ -22,7 +23,6 @@ class Map extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.sessionId !== this.props.sessionId) {
-      console.log('trying to update state of mappage', nextProps);
       this.setState({ sessionId: nextProps.sessionId }, () => this.loadMap());
     } else {
       console.log(
@@ -98,11 +98,9 @@ class Map extends Component {
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
       if (status == 'OK') {
-        console.log(results);
         for (var i = 0; i < results.length; i++) {
           this.addMarker(results[i], map);
         }
-        console.log('this is the radius', this.state.radius);
         map.setZoom(this.radiusToZoom(this.state.radius * 1609 / 1000));
       } else {
         console.log('having problem useing placesservice', status);
@@ -133,7 +131,6 @@ class Map extends Component {
   }
 
   addMarker = (place, map) => {
-    console.log('this is each place', place);
     var marker = new google.maps.Marker({
       position: place.geometry.location,
       map: map,
@@ -143,7 +140,6 @@ class Map extends Component {
     //   alert(JSON.stringify(marker.customInfo));
     // });
     marker.addListener('click', () => {
-      console.log('this is the marker', marker.customInfo);
       infoWindow.setContent(
         `<div id='content'>name:${
           marker.customInfo.name

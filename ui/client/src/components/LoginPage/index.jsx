@@ -11,6 +11,9 @@ class Login extends Component {
       err: ''
     };
   }
+  componentDidMount() {
+    console.log('hello');
+  }
   async handleSubmitClick() {
     try {
       const { data } = await axios.post(
